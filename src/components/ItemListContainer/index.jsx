@@ -1,10 +1,16 @@
 import styled from "@emotion/styled";
 import React from "react";
+import Counter from "../ItemCount";
 
 const ContainerCatalogo = styled.div``;
 
 const ItemListContainer = ({ greetings }) => {
-  return <ContainerCatalogo>{greetings}</ContainerCatalogo>;
+  return (
+    <>
+      <ContainerCatalogo>{greetings}</ContainerCatalogo>;
+      <Counter stock={8} />
+    </>
+  );
 };
 
 export default ItemListContainer;
