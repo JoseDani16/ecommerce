@@ -16,29 +16,61 @@ const ItemCount = ({ stock }) => {
   };
   return (
     <CounterItem id="container">
-      <div id="numero" className="numero">
-        {valor}
-      </div>
       <div className="flexStyle">
         <button id="boton2" onClick={decline}>
           -
         </button>
+        <div id="numero" className="numero">
+          {valor}
+        </div>
         <button id="boton1" onClick={increase}>
           +
         </button>
       </div>
-      <StockContainer>El stock de este producto es de: {stock}</StockContainer>
+      {valor > 0 ? (
+        <CartBotonContainer>
+          <button id="CartBoton">Añadir al Carrito</button>
+        </CartBotonContainer>
+      ) : (
+        ""
+      )}
+
+      <StockContainer>
+        El stock de este producto es de: {stock} unidades
+      </StockContainer>
     </CounterItem>
   );
 };
 
-const StockContainer = styled.div``;
+const CartBotonContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  animation-name: aparicion;
+  animation-duration: 0.3s;
+
+  @keyframes aparicion {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+`;
+
+const StockContainer = styled.div`
+  text-align: center;
+  color: #999;
+`;
 const CounterItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 30%;
   margin-right: 30%;
+  border-radius: 25px;
+  border: solid 1px #e0e0e0;
   * {
     box-sizing: border-box;
   }
@@ -50,22 +82,25 @@ const CounterItem = styled.div`
   .flexStyle {
     display: flex;
     justify-content: space-around;
+    align-items: center;
   }
 
   #numero {
     font-size: 3em;
     text-align: center;
-    margin-bottom: 20px;
     user-select: none;
     font-weight: bold;
   }
 
   /* Estilos de los botones */
-
   #boton1,
   #boton2 {
-    padding: 20px;
-    margin: 10px;
+    font-size: x-large;
+  }
+
+  #boton1,
+  #boton2,
+  #CartBoton {
     border-radius: 25px;
     border: none;
     outline: none;
@@ -73,8 +108,8 @@ const CounterItem = styled.div`
     transition: 0.4s;
     color: #999;
     background: #e0e0e0;
-    width: 50%;
-    font-size: x-large;
+    width: 100px;
+    height: 50px;
   }
 
   #boton1:hover {
@@ -85,6 +120,10 @@ const CounterItem = styled.div`
   #boton2:hover {
     background: #fe4a49;
     color: #000;
+  }
+  #CartBoton:hover {
+    background: green;
+    color: #fff;
   }
 `;
 
