@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import Counter from "./components/ItemCount";
+import ItemList from "./components/ItemList";
 
 const ContainerCatalogo = styled.div``;
 
@@ -8,7 +8,7 @@ const ItemListContainer = ({ greetings }) => {
   return (
     <>
       <ContainerCatalogo>{greetings}</ContainerCatalogo>
-      <Counter stock={8} />
+      <ItemList />
     </>
   );
 };
