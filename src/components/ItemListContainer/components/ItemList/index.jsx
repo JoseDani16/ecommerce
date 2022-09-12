@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Productos } from "../../../../services/fakeProductsAPI";
 import Item from "./components/Item";
 
@@ -12,12 +12,9 @@ const Container = styled.div`
 const ItemList = () => {
   const [productosCargados, setProductosCargados] = useState(null);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setProductosCargados(Productos);
-    }, 2000);
-  }, []);
+  const promesita = () => new Promise((resolve) => setTimeout(resolve, 2000));
 
+  promesita().then(() => setProductosCargados(Productos));
   return (
     <Container>
       {productosCargados
