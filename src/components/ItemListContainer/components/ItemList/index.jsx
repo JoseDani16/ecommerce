@@ -25,7 +25,7 @@ const ItemList = () => {
               precio={producto.precio}
               stock={producto.stock}
               imgURL={producto.pictureURL}
-              description={producto.description}
+              altImg={producto.alt}
             />
           ))
         : "Cargando..."}

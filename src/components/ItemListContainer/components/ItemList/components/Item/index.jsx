@@ -30,14 +30,13 @@ const Container = styled.div`
   margin: 5px 10px;
 `;
 
-const Item = ({ nombre, precio, stock, imgURL, description }) => {
+const Item = ({ nombre, precio, stock, imgURL, altImg }) => {
   return (
     <Container>
       <ImgContainer>
-        <img src={imgURL} />
+        <img src={imgURL} alt={altImg} />
       </ImgContainer>
       <Text>{nombre}</Text>
-      <Text>{description}</Text>
       <Text>${precio}</Text>
       <ItemCount stock={stock} />
     </Container>
