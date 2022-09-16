@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import BurguerButton from "./components/BurguerButton";
-import CartWidget from "./components/CartWidget";
+import BurguerButton from "../BurguerButton";
+import CartWidget from "../CartWidget";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   const [clicked, setClicked] = useState(false);
@@ -12,15 +13,15 @@ function Navbar() {
   return (
     <>
       <NavContainer>
-        <h2>
-          Navbar <span>Responsive</span>
-        </h2>
+        <NavLink to="">
+          <h2>
+            Navbar <span>Responsive</span>
+          </h2>
+        </NavLink>
+
         <div className={`links ${clicked ? "active" : ""}`}>
-          <a href="#h">Inicio</a>
-          <a href="#h">Tienda</a>
-          <a href="#h">Sobre Nosotros</a>
-          <a href="#h">Contacto</a>
-          <a href="#h">Blog</a>
+          <Link to="">Inicio</Link>
+          <Link to="/productos/">Productos</Link>
         </div>
         <div className="carWidget">
           <CartWidget />
@@ -37,8 +38,6 @@ function Navbar() {
   );
 }
 
-export default Navbar;
-
 const NavContainer = styled.nav`
   h2 {
     color: white;
@@ -52,12 +51,11 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  a {
-    color: white;
-    text-decoration: none;
-    margin-right: 1rem;
-  }
+
   .links {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
     position: absolute;
     top: -700px;
     left: -2000px;
@@ -79,7 +77,6 @@ const NavContainer = styled.nav`
         color: white;
         display: inline;
       }
-      display: block;
     }
   }
   .links.active {
@@ -92,6 +89,7 @@ const NavContainer = styled.nav`
     left: 0;
     right: 0;
     text-align: center;
+    z-index: 1;
     a {
       font-size: 2rem;
       margin-top: 1rem;
@@ -102,6 +100,7 @@ const NavContainer = styled.nav`
     @media (min-width: 768px) {
       display: none;
     }
+    z-index: 1;
   }
 `;
 
@@ -112,7 +111,6 @@ const BgDiv = styled.div`
   left: -1000px;
   width: 100%;
   height: 100%;
-  z-index: -1;
   transition: all 0.6s ease;
 
   &.active {
@@ -121,5 +119,8 @@ const BgDiv = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 0;
   }
 `;
+
+export default Navbar;

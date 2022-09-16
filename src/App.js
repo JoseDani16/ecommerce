@@ -1,15 +1,7 @@
-import ItemDetailContainer from "./components/ItemDetailContainer";
-import ItemListContainer from "./components/ItemListContainer/index";
-import Navbar from "./components/Navbar/index";
+import Router from "./App/Router";
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <ItemListContainer greetings="Bienvenido" />
-      <ItemDetailContainer />
-    </>
-  );
+  return <Router />;
 }
 
 export default App;

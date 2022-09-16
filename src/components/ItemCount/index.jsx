@@ -1,6 +1,47 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 
+const ItemCount = ({ stock }) => {
+  const [valor, setValor] = useState(0);
+
+  const increase = () => {
+    if (valor < stock) {
+      setValor(valor + 1);
+    }
+  };
+  const decline = () => {
+    if (valor > 0) {
+      setValor(valor - 1);
+    }
+  };
+  return (
+    <CounterItem id="container">
+      <div className="flexStyle">
+        <button id="boton2" onClick={decline}>
+          -
+        </button>
+        <div id="numero" className="numero">
+          {valor}
+        </div>
+        <button id="boton1" onClick={increase}>
+          +
+        </button>
+      </div>
+      {valor > 0 ? (
+        <CartBotonContainer>
+          <button id="CartBoton">Añadir al Carrito</button>
+        </CartBotonContainer>
+      ) : (
+        ""
+      )}
+
+      <StockContainer>
+        El stock de este producto es de: {stock} unidades
+      </StockContainer>
+    </CounterItem>
+  );
+};
+
 const CartBotonContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -86,46 +127,4 @@ const CounterItem = styled.div`
     color: #fff;
   }
 `;
-
-const ItemCount = ({ stock }) => {
-  const [valor, setValor] = useState(0);
-
-  const increase = () => {
-    if (valor < stock) {
-      setValor(valor + 1);
-    }
-  };
-  const decline = () => {
-    if (valor > 0) {
-      setValor(valor - 1);
-    }
-  };
-  return (
-    <CounterItem id="container">
-      <div className="flexStyle">
-        <button id="boton2" onClick={decline}>
-          -
-        </button>
-        <div id="numero" className="numero">
-          {valor}
-        </div>
-        <button id="boton1" onClick={increase}>
-          +
-        </button>
-      </div>
-      {valor > 0 ? (
-        <CartBotonContainer>
-          <button id="CartBoton">Añadir al Carrito</button>
-        </CartBotonContainer>
-      ) : (
-        ""
-      )}
-
-      <StockContainer>
-        El stock de este producto es de: {stock} unidades
-      </StockContainer>
-    </CounterItem>
-  );
-};
-
 export default ItemCount;

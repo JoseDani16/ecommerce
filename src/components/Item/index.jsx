@@ -1,6 +1,22 @@
 import styled from "@emotion/styled";
 import React from "react";
-import ItemCount from "../../../ItemCount";
+import { Link } from "react-router-dom";
+import ItemCount from "../ItemCount";
+
+const Item = ({ nombre, precio, stock, imgURL, altImg, clave }) => {
+  return (
+    <Container>
+      <Link to={`/detalleDelProducto/${clave}`}>
+        <ImgContainer>
+          <img src={imgURL} alt={altImg} />
+        </ImgContainer>
+        <Text>{nombre}</Text>
+        <Text>${precio}</Text>
+        <ItemCount stock={stock} />
+      </Link>
+    </Container>
+  );
+};
 
 const ImgContainer = styled.div`
   width: 200px;
@@ -28,19 +44,10 @@ const Container = styled.div`
   border-radius: 15px;
   border: solid 1px #e6e6e6;
   margin: 5px 10px;
+  transition: all 0.2s;
+  :hover {
+    background-color: #e6e6e6;
+  }
 `;
-
-const Item = ({ nombre, precio, stock, imgURL, altImg }) => {
-  return (
-    <Container>
-      <ImgContainer>
-        <img src={imgURL} alt={altImg} />
-      </ImgContainer>
-      <Text>{nombre}</Text>
-      <Text>${precio}</Text>
-      <ItemCount stock={stock} />
-    </Container>
-  );
-};
 
 export default Item;

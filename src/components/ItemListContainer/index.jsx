@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import ItemList from "./components/ItemList";
+import ItemList from "../ItemList";
 
 const ContainerCatalogo = styled.div``;
 

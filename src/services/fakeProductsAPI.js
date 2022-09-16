@@ -1,6 +1,7 @@
 export const Productos = [
   {
     id: 0,
+    categoryId: "Electrodomestico",
     nombre: "Televisor",
     precio: 8000,
     stock: 5,
@@ -11,6 +12,7 @@ export const Productos = [
   },
   {
     id: 1,
+    categoryId: "Mueble",
     nombre: "Cama",
     precio: 8001,
     stock: 8,
@@ -21,6 +23,7 @@ export const Productos = [
   },
   {
     id: 2,
+    categoryId: "Vehiculo",
     nombre: "Auto",
     precio: 8002,
     stock: 11,
@@ -31,6 +34,7 @@ export const Productos = [
   },
   {
     id: 3,
+    categoryId: "Calefaccion",
     nombre: "Estufa",
     precio: 8003,
     stock: 15,
@@ -41,6 +45,7 @@ export const Productos = [
   },
   {
     id: 4,
+    categoryId: "Mueble",
     nombre: "Ropero",
     precio: 8004,
     stock: 7,
@@ -51,6 +56,7 @@ export const Productos = [
   },
   {
     id: 5,
+    categoryId: "Vehiculo",
     nombre: "Bicicleta",
     precio: 8005,
     stock: 6,
@@ -61,6 +67,7 @@ export const Productos = [
   },
   {
     id: 6,
+    categoryId: "Electrodomestico",
     nombre: "Ventilador",
     precio: 8006,
     stock: 2,
