@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 
-const ItemCount = ({ stock }) => {
-  const [valor, setValor] = useState(0);
+const ItemCount = ({ stock, onAdd }) => {
+  const [count, setCount] = useState(0);
 
   const increase = () => {
-    if (valor < stock) {
-      setValor(valor + 1);
+    if (count < stock) {
+      setCount(count + 1);
     }
   };
   const decline = () => {
-    if (valor > 0) {
-      setValor(valor - 1);
+    if (count > 0) {
+      setCount(count - 1);
     }
   };
   return (
@@ -21,20 +21,21 @@ const ItemCount = ({ stock }) => {
           -
         </button>
         <div id="numero" className="numero">
-          {valor}
+          {count}
         </div>
         <button id="boton1" onClick={increase}>
           +
         </button>
       </div>
-      {valor > 0 ? (
-        <CartBotonContainer>
-          <button id="CartBoton">Añadir al Carrito</button>
-        </CartBotonContainer>
-      ) : (
-        ""
-      )}
-
+      <CartBotonContainer>
+        <button
+          disabled={count === 0}
+          id="CartBoton"
+          onClick={() => onAdd(count)}
+        >
+          Añadir al Carrito
+        </button>
+      </CartBotonContainer>
       <StockContainer>
         El stock de este producto es de: {stock} unidades
       </StockContainer>

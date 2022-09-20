@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 
 const CartContent = () => {
-  return <CartContainer></CartContainer>;
+  return <CartContainer>Cart</CartContainer>;
 };
 const CartContainer = styled.div``;
 

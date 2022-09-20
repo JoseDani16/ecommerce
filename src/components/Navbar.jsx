@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import BurguerButton from "../BurguerButton";
-import CartWidget from "../CartWidget";
+import BurguerButton from "./BurguerButton";
+import CartWidget from "./CartWidget";
 import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -46,7 +46,7 @@ const NavContainer = styled.nav`
       font-weight: bold;
     }
   }
-  padding: 0.4rem;
+  padding: 0.4rem 1.4rem;
   background-color: #333;
   display: flex;
   align-items: center;

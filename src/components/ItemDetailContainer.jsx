@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { Productos } from "../../services/fakeProductsAPI";
-import ItemDetail from "../ItemDetail";
+import { Productos } from "../services/fakeProductsAPI";
+import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 
 const Container = styled.div`
