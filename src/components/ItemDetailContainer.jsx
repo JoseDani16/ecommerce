@@ -27,19 +27,7 @@ const ItemDetailContainer = () => {
   };
   return (
     <Container>
-      {producto ? (
-        <ItemDetail
-          key={producto.id}
-          nombre={producto.nombre}
-          precio={producto.precio}
-          description={producto.description}
-          stock={producto.stock}
-          imgURL={producto.pictureURL}
-          altImg={producto.alt}
-        />
-      ) : (
-        "Cargando..."
-      )}
+      {producto ? <ItemDetail data={producto} /> : "Cargando..."}
     </Container>
   );
 };

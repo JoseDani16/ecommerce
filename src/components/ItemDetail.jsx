@@ -1,31 +1,35 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../App/CartContext";
 import { Price } from "./Item";
 import ItemCount from "./ItemCount";
 
-const ItemDetail = ({ nombre, precio, imgURL, altImg, description, stock }) => {
+const ItemDetail = ({ data }) => {
   const [goToCart, setGoToCart] = useState(false);
 
-  const onAdd = () => {
+  const { AddToCart } = useCartContext();
+
+  const onAdd = (cantidad) => {
     setGoToCart(true);
+    AddToCart(data, cantidad);
   };
 
   return (
     <Container>
       <SubContainer>
-        <p>{nombre}</p>
+        <p>{data.nombre}</p>
         <ImgContainer>
-          <ImgStyled src={imgURL} alt={altImg} />
+          <ImgStyled src={data.pictureURL} alt={data.alt} />
         </ImgContainer>
-        <p>{description}</p>
+        <p>{data.description}</p>
       </SubContainer>
       <SubContainer>
-        <Price>${precio}</Price>
+        <Price>${data.precio}</Price>
         {goToCart ? (
           <Link to="/cart"> Ir al Carrito</Link>
         ) : (
-          <ItemCount stock={stock} onAdd={onAdd} />
+          <ItemCount stock={data.stock} onAdd={onAdd} />
         )}
       </SubContainer>
     </Container>
