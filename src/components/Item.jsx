@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Item = ({ nombre, precio, stock, imgURL, altImg, clave }) => {
+const Item = ({ nombre, precio, stock, imgURL, altImg, clave, cantidad }) => {
   return (
     <Container>
       <StyledLink to={`/detalleDelProducto/${clave}`}>
@@ -11,6 +11,7 @@ const Item = ({ nombre, precio, stock, imgURL, altImg, clave }) => {
         </ImgContainer>
         <Text>{nombre}</Text>
         <Price>$ {precio}</Price>
+        {cantidad && cantidad}
       </StyledLink>
     </Container>
   );

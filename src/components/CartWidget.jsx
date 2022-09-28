@@ -1,12 +1,15 @@
-import React from "react";
 import { BsCart3 } from "react-icons/bs";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../App/CartContext";
 
 const CartWidget = () => {
+  const { totalCantidad } = useCartContext();
+
   return (
     <StyledLink to={"/cart"}>
       <CartIcon />
+      {totalCantidad()}
     </StyledLink>
   );
 };
