@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import BurguerButton from "./BurguerButton";
 import CartWidget from "./CartWidget";
 import { Link, NavLink } from "react-router-dom";
+import { useCartContext } from "../App/CartContext";
 
 function Navbar() {
   const [clicked, setClicked] = useState(false);
@@ -10,6 +11,7 @@ function Navbar() {
     //cuando esta true lo pasa a false y vice versa
     setClicked(!clicked);
   };
+  const { totalCantidad } = useCartContext();
   return (
     <>
       <NavContainer>
@@ -24,7 +26,7 @@ function Navbar() {
           <Link to="/productos/">Productos</Link>
         </div>
         <div className="carWidget">
-          <CartWidget />
+          {totalCantidad() !== 0 ? <CartWidget /> : ""}
         </div>
         <div className="burguer">
           <BurguerButton clicked={clicked} handleClick={handleClick} />
