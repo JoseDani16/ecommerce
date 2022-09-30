@@ -15,7 +15,7 @@ const ItemCount = ({ stock, onAdd }) => {
     }
   };
   return (
-    <CounterItem id="container">
+    <CounterItem>
       <div className="flexStyle">
         <button id="boton2" onClick={decline}>
           -
@@ -68,8 +68,6 @@ const CounterItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 30%;
-  margin-right: 30%;
 
   * {
     box-sizing: border-box;

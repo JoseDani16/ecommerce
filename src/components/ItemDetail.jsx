@@ -20,12 +20,16 @@ const ItemDetail = ({ data }) => {
       <SubContainer>
         <p>{data.nombre}</p>
         <ImgContainer>
-          <ImgStyled src={data.pictureURL} alt={data.alt} />
+          <ImgStyled src={data.imgURL} alt={data.alt} />
         </ImgContainer>
-        <p>{data.description}</p>
+        <p>{data.descripcion}</p>
       </SubContainer>
       <SubContainer>
-        <Price>${data.precio}</Price>
+        <Price>
+          {data.moneda}
+
+          {data.precio}
+        </Price>
         {goToCart ? (
           <Link to="/cart"> Ir al Carrito</Link>
         ) : (

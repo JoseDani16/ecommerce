@@ -19,11 +19,11 @@ const Router = () => {
             <Route element={<LayoutProduct />}>
               <Route path="/productos/" element={<Productos />} />
               <Route
-                path="/detalleDelProducto/:idDelProducto"
+                path="/detalleDelProducto/:keyDelProducto"
                 element={<ItemDetailContainer />}
               />
               <Route
-                path="/productos/:idCategoria"
+                path="/productos/:nameCategoria"
                 element={<ItemListContainer />}
               />
             </Route>

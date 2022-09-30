@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 const CategoryItemSelector = () => {
   return (
     <SubNavContainer>
-      <StyledLink to="/productos/Electrodomestico">
+      <StyledLink to="/productos/Electrodomésticos">
         Electrodomesticos
       </StyledLink>
 
-      <StyledLink to="/productos/Mueble">Muebles</StyledLink>
+      <StyledLink to="/productos/Muebles">Muebles</StyledLink>
 
-      <StyledLink to="/productos/Calefaccion">Calefaccion</StyledLink>
+      <StyledLink to="/productos/Calefacción">Calefaccion</StyledLink>
 
-      <StyledLink to="/productos/Vehiculo">Vehiculos</StyledLink>
+      <StyledLink to="/productos/Vehículos">Vehículos</StyledLink>
     </SubNavContainer>
   );
 };

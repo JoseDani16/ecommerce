@@ -28,11 +28,11 @@ const Cart = () => {
           carritoArray.map((producto) => (
             <CartItemDetail
               key={producto.id}
-              clave={producto.id}
+              clave={producto.key}
               nombre={producto.nombre}
               precio={producto.precio}
               stock={producto.stock}
-              imgURL={producto.pictureURL}
+              imgURL={producto.imgURL}
               altImg={producto.alt}
               cantidad={producto.cantidad}
             />

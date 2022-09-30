@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getItems } from "../App/api";
 import { Productos } from "../services/fakeProductsAPI";
 import Item from "./Item";
 
@@ -9,20 +10,19 @@ const ItemList = () => {
   const [productosFiltrados, setProductosFiltrados] = useState(null);
   let productosAPintar = [];
 
-  const { idCategoria } = useParams();
+  const { nameCategoria } = useParams();
 
   useEffect(() => {
     setProductosFiltrados(null);
-    const promesita = () => new Promise((resolve) => setTimeout(resolve, 2000));
-    promesita().then(() => {
-      setProductosCargados(Productos);
+    getItems().then((res) => {
+      setProductosCargados(res);
       setProductosFiltrados(
-        Productos.filter((producto) => producto.categoryId === idCategoria)
+        res.filter((producto) => producto.categoria === nameCategoria)
       );
     });
-  }, [idCategoria]);
+  }, [nameCategoria]);
 
-  if (idCategoria !== undefined) {
+  if (nameCategoria !== undefined) {
     productosAPintar = productosFiltrados;
   } else {
     productosAPintar = productosCargados;
@@ -38,7 +38,7 @@ const ItemList = () => {
               nombre={producto.nombre}
               precio={producto.precio}
               stock={producto.stock}
-              imgURL={producto.pictureURL}
+              imgURL={producto.imgURL}
               altImg={producto.alt}
             />
           ))
@@ -54,7 +54,7 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 export default ItemList;
-/*{idCategoria
+/*{nameCategoria
         ? productosFiltrados.map((producto) => (
             <Item
               key={producto.id}
