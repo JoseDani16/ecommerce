@@ -18,6 +18,11 @@ export const createItem = async (obj) => {
   const data = await addDoc(colRef, obj);
   return data.id;
 };
+export const createOrder = async (obj) => {
+  const colRef = collection(db, "Ordenes");
+  const data = await addDoc(colRef, obj);
+  return data.id;
+};
 
 // UPDATE
 export const updateItem = async (id, obj) => {

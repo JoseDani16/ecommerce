@@ -10,22 +10,22 @@ const CartProvider = ({ children }) => {
   //---------------------------------------------------
   const AddToCart = (newProdu, nuevaCantidad) => {
     const newCart = carritoArray.filter(
-      (oldProdu) => oldProdu.id !== newProdu.id
+      (oldProdu) => oldProdu.key !== newProdu.key
     );
     newCart.push({ ...newProdu, cantidad: nuevaCantidad });
     setCarritoArray(newCart);
   };
-
   const deleteCarrito = () => {
     setCarritoArray([]);
   };
 
   const deleteProdu = (id) => {
-    setCarritoArray(carritoArray.filter((item) => item.id !== id));
+    console.log(carritoArray);
+    setCarritoArray(carritoArray.filter((item) => item.key !== id));
   };
 
   const isInCart = (id) => {
-    return carritoArray.find((item) => item.id === id) ? true : false;
+    return carritoArray.find((item) => item.key === id) ? true : false;
   };
 
   const totalPrice = () => {

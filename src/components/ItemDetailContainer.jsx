@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { Productos } from "../services/fakeProductsAPI";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import { getItemById, getItems } from "../App/api";
+import { getItemById } from "../App/api";
 
 const Container = styled.div`
   display: flex;

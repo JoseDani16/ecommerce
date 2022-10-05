@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getItems } from "../App/api";
-import { Productos } from "../services/fakeProductsAPI";
 import Item from "./Item";
 
 const ItemList = () => {
@@ -33,13 +32,14 @@ const ItemList = () => {
       {productosAPintar
         ? productosAPintar.map((producto) => (
             <Item
-              key={producto.id}
+              key={producto.key}
               clave={producto.id}
               nombre={producto.nombre}
               precio={producto.precio}
               stock={producto.stock}
               imgURL={producto.imgURL}
               altImg={producto.alt}
+              moneda={producto.moneda}
             />
           ))
         : "Cargando..."}

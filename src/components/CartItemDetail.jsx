@@ -2,14 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import { useCartContext } from "../App/CartContext";
 
-const CartItemDetail = ({
-  nombre,
-  precio,
-  imgURL,
-  altImg,
-  cantidad,
-  clave,
-}) => {
+const CartItemDetail = ({ nombre, precio, imgURL, altImg, cantidad, id }) => {
   const { deleteProdu } = useCartContext();
   return (
     <Container>
@@ -22,7 +15,7 @@ const CartItemDetail = ({
       <SubContainer>
         <Price>$ {cantidad * precio}</Price>
         {cantidad && cantidad}
-        <button onClick={() => deleteProdu(clave)}>X</button>
+        <button onClick={() => deleteProdu(id)}>X</button>
       </SubContainer>
     </Container>
   );
